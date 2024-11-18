@@ -1,0 +1,18 @@
+@if(case){
+<div class="case">
+  <div class="case-header">
+    <b class="case_title">{{ case.title }}</b>
+    <p>{{ case.id }} :מספר תיק</p>
+    <p>{{ case.status }}:סטטוס</p>
+    <p class="case-description">{{ case.description }}</p>
+  </div>
+  <div class="case-content">
+    <span>{{ case.createdAt }} :תאריך פתיחת תיק</span>
+    @if(plaintiff){
+    <span>{{ plaintiff.name }} :תובע</span>
+    } @if(defendant){
+    <span>{{ defendant.name }} :נתבע</span>
+    }
+  </div>
+</div>
+}

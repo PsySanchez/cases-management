@@ -1,0 +1,53 @@
+<div class="functionals">
+  <button
+    mat-button
+    color="primary"
+    (click)="filterByStatus('closed')"
+    [class.active]="filterStatus === 'closed'"
+  >
+    תיקים סגורים
+  </button>
+  <button
+    mat-button
+    color="primary"
+    (click)="filterByStatus('open')"
+    [class.active]="filterStatus === 'open'"
+  >
+    תיקים פעילים
+  </button>
+  <button
+    mat-button
+    color="primary"
+    (click)="filterByStatus('myCases')"
+    [class.active]="filterStatus === 'myCases'"
+  >
+    תיקים שלי
+  </button>
+  <button
+    mat-button
+    color="primary"
+    (click)="filterByStatus('all')"
+    [class.active]="filterStatus === 'all'"
+  >
+    הכל
+  </button>
+</div>
+
+<div>
+  <mat-form-field appearance="outline">
+    <mat-label>מיון לפי</mat-label>
+    <mat-select (valueChange)="sortCaseBy($event)">
+      @for (sort of sortBy; track sort) {
+      <mat-option [value]="sort.key">{{ sort.value }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<span>תוצאות חיפוש</span>
+
+<div class="case-list">
+  @for(case of caseList; track case.id) {
+  <app-case [case]="case"></app-case>
+  }
+</div>
